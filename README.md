@@ -1,4 +1,4 @@
-# <DiffPC: Diffusion-Based Projector Photometric Compensation>
+# DiffPC: Diffusion-Based Projector Photometric Compensation
 
 Official implementation of **DiffPC: Diffusion-Based Projector Photometric Compensation**
 
