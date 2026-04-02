@@ -1,92 +1,90 @@
 # <Your Algorithm Name>
 
-🚀 Official implementation of **<Your Algorithm Name>**
+🚀 Official implementation of **<DiffPC: Diffusion-Based Projector Photometric Compensation>**
 
 ---
 
-## 📌 Overview
+## Overview
 
 This repository provides the **official implementation** of our proposed method:  
-**<Your Algorithm Name>**.
+**<DiffPC: Diffusion-Based Projector Photometric Compensation>**.
 
-Our method focuses on <brief description of your method, e.g., dynamic projection / flow matching / AR tracking>.
+Our method focuses on photmetric compensation using diffusion-based model.
 
 ---
 
-## 📂 Dataset
+## Dataset
 
 We use the following datasets for training:
 
-- Compennet  
-- Compennest  
+- CompenNet  
+- CompenNeSt
+- Synthetic data used in CompenNeSt++
 
-🔗 Dataset links:
-
-- Compennet: <link_here>
-- Compennest: <link_here>
-
-Please download the datasets and organize them in your local directory before training.
+Please download the [datasets](https://github.com/BingyaoHuang/CompenNeSt-plusplus) and organize them in your local directory before training.
 
 ---
 
-## ⚙️ Usage
+## Usage
 
-### 1️⃣ Training
+### Training
 
 To train the model, run:
 
 ```bash
-python train.py --config configs/train.yaml
+cd cmp_sde/code/config/cmp
+python train.py -opt=options/train/diffpc_train.yaml
 ```
 
-⚠️ **Important:**
 
 Before training, you need to modify the dataset path in the config file:
-
 ```yaml
-# configs/train.yaml
-data_path: /your/dataset/path
+# options/train/diffpc_train.yaml
 ```
-
-Replace it with your own dataset directory.
+Replace YOUR DATA PATH with your own dataset directory.
 
 ---
 
-### 2️⃣ Testing
+### Testing
 
 To evaluate the model, run:
 
 ```bash
-python test.py --config configs/test.yaml
+cd cmp_sde/code/config/cmp
+python test.py -opt=options/test/diffpc_test.yaml
 ```
 
+
+
+Before testing, you need to modify the dataset path and pre-trained model in the config file:
+```yaml
+# options/test/diffpc_test.yaml
+```
+Replace YOUR DATA PATH with your own data directory, YOUR PRE-TRAINED MODEL with your pre-trained model.
 ---
 
-## 📖 Citation
+## Citation
 
 If you find this work useful, please consider citing:
 
 ```bibtex
 @article{your2025algorithm,
-  title={Your Algorithm Name},
-  author={Your Name and Others},
+  title={DiffPC: Diffusion-Based Projector Photometric Compensation},
+  author={Yuxi Wang, Haibin Ling, Bingyao Huang},
   journal={},
-  year={2025}
+  year={2026}
 }
 ```
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 Our implementation is built upon the following project:
 
-<link_to_repository>
+[Image Restoration SDE](https://github.com/LVCHENYONG/refusion)
 
 We sincerely thank the authors for their open-source contribution.
 
 ---
 
-## 📬 Contact
-
-If you have any questions, feel free to open an issue or contact us.
