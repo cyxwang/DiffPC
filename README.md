@@ -30,7 +30,7 @@ python train.py -opt=options/train/diffpc_train.yaml
 
 Before training, you need to modify the dataset path in the config file:
 ```yaml
-# options/train/diffpc_train.yaml
+options/train/diffpc_train.yaml
 ```
 Replace YOUR DATA PATH with your own dataset directory.
 
@@ -49,9 +49,10 @@ python test.py -opt=options/test/diffpc_test.yaml
 
 Before testing, you need to modify the dataset path and pre-trained model in the config file:
 ```yaml
-# options/test/diffpc_test.yaml
+options/test/diffpc_test.yaml
 ```
 Replace YOUR DATA PATH with your own data directory, YOUR PRE-TRAINED MODEL with your pre-trained model.
+
 ---
 
 ## Citation
