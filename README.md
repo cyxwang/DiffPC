@@ -1,15 +1,6 @@
 # <Your Algorithm Name>
 
-🚀 Official implementation of **<DiffPC: Diffusion-Based Projector Photometric Compensation>**
-
----
-
-## Overview
-
-This repository provides the **official implementation** of our proposed method:  
-**<DiffPC: Diffusion-Based Projector Photometric Compensation>**.
-
-Our method focuses on photmetric compensation using diffusion-based model.
+Official implementation of **<DiffPC: Diffusion-Based Projector Photometric Compensation>**
 
 ---
 
@@ -18,7 +9,7 @@ Our method focuses on photmetric compensation using diffusion-based model.
 We use the following datasets for training:
 
 - CompenNet  
-- CompenNeSt
+- CompenNeSt++
 - Synthetic data used in CompenNeSt++
 
 Please download the [datasets](https://github.com/BingyaoHuang/CompenNeSt-plusplus) and organize them in your local directory before training.
