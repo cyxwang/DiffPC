@@ -1,0 +1,56 @@
+name: cmp-sde-posterior
+suffix: ~  
+model: denoising
+distortion: derain
+gpu_ids: [0]
+
+sde:
+  max_sigma: 50 
+  T: 100
+  schedule: cosine # 
+  eps: 0.005
+  sampling_mode: posterior #
+  beta_start: 0.0001
+  beta_end: 0.03
+  s: 0.0008
+  # 0.001
+
+degradation:
+  # for denoising
+  sigma: 25
+  noise_type: G # Gaussian noise: G
+
+  # for super-resolution
+  scale: 1
+
+datasets:
+  test:
+    name: diffpc 
+    mode: LQSFGTAll
+    data_type: img
+    subfold: ['warpSL']  
+    dataroot: [  
+        'YOUR DATA PATH/compennest/', #  
+    ]
+    
+    dataname: [
+      [
+        'light1/pos1/cloud_np',
+      ],
+    ]
+    data_size: 256
+    len: 500
+    
+
+#### network structures
+network_G:
+  which_model_G: ConditionalNAFNetCMP
+  setting:
+    width: 32
+    enc_blk_nums: [1, 1, 1, 28]
+    middle_blk_num: 1
+    dec_blk_nums: [1, 1, 1,1] 
+#### path
+path:
+  pretrain_model_G: YOUR PRE-TRAINED MODEL # eg: ./DiffPC-main/cmp_sde/experiments/cmp/cmp-sde/models/20000_G.pth # 
+ 

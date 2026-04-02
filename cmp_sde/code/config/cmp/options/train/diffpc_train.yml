@@ -1,0 +1,243 @@
+#### general settings
+name: cmp-sde
+use_tb_logger: true
+model: denoising
+distortion: compensate
+gpu_ids: [0]
+
+
+sde:
+  max_sigma: 50 
+  T: 100
+  schedule: cosine 
+  eps: 0.005
+  beta_start: 0.0001
+  beta_end: 0.03
+  s: 0.0008
+
+
+degradation: # for some synthetic dataset that only have GTs
+  # for denoising
+  sigma: 25
+  noise_type: G # Gaussian noise: G
+
+  # for super-resolution
+  scale: 4
+ 
+#### datasets
+datasets:
+  
+  train:
+      name: train_cam
+      mode: LQSFGTAll
+      data_type: img
+      subfold: ['warp','warpSL','warp'] 
+      dataroot: [
+        'YOUR DATA PATH/compennet/', # CompenNet datasets
+        'YOUR DATA PATH/compennest/', # CompenNeSt datasets
+        'YOUR DATA PATH/blender_synthetic_data/', # Synthetic data used in CompenNeSt++
+      ]
+      dataname: [ # 18
+        ['light1/pos1/stripes',
+        'light1/pos2/stripes',
+        'light1/pos3/cubes',
+        'light1/pos5/cubes',
+        'light2/pos1/squares',
+        'light2/pos2/lavender',
+        'light2/pos5/squares',
+        'light2/pos5/lavender',
+        'light2/pos5/stripes',
+        'light3/pos1/lavender',
+        'light3/pos2/cubes',
+        'light3/pos3/lavender',
+        'light3/pos3/squares',
+        'light3/pos4/cubes',
+        'light4/pos1/stripes',
+        'light4/pos3/stripes',
+        ],
+        [ # 17
+          'light1/pos1/lavender_np',
+          'light1/pos2/cubes_np',
+          'light1/pos3/bars_spec_np',
+          'light1/pos4/bubbles_np',
+          'light1/pos5/pillow_np',
+          'light2/pos1/lavender_np',
+          'light2/pos1/stripes_np',
+          'light2/pos2/lavender_spec_np',
+          'light2/pos4/lavender_np',
+          'light2/pos5/stripes_np',
+          'light2/pos6/cubes_np',
+          'light3/pos1/bubbles_np',
+          'light3/pos1/squares_np',
+          'light3/pos2/water_np',
+        ],
+        [ # 100
+          'light1/pos3/Paper03_001',
+          'light1/pos3/Paper03_002',
+          'light1/pos3/Paper03_003',
+          'light1/pos3/Paper03_004',
+          'light1/pos3/Paper03_005',
+          'light1/pos3/Paper03_006',
+          'light1/pos3/Paper03_007',
+          'light1/pos3/Paper03_008',
+          'light1/pos3/Paper03_009',
+          'light1/pos3/Paper03_010',
+          'light1/pos3/Paper03_011',
+          'light1/pos3/Paper03_012',
+          'light1/pos3/Paper03_013',
+          'light1/pos3/Paper03_014',
+          'light1/pos3/Paper03_015',
+          'light1/pos3/Paper03_016',
+          'light1/pos3/Paper03_017',
+          'light1/pos3/Paper03_018',
+          'light1/pos3/Paper03_019',
+          'light1/pos3/Paper03_020',
+          'light1/pos3/Paper03_021',
+          'light1/pos3/Paper03_022',
+          'light1/pos3/Paper03_023',
+          'light1/pos3/Paper03_024',
+          'light1/pos3/Paper03_025',
+          'light1/pos3/Paper03_026',
+          'light1/pos3/Paper03_027',
+          'light1/pos3/Paper03_028',
+          'light1/pos3/Paper03_029',
+          'light1/pos3/Paper03_030',
+          'light1/pos3/Paper03_031',
+          'light1/pos3/Paper03_032',
+          'light1/pos3/Paper03_033',
+          'light1/pos3/Paper03_034',
+          'light1/pos3/Paper03_035',
+          'light1/pos3/Paper03_036',
+          'light1/pos3/Paper03_037',
+          'light1/pos3/Paper03_038',
+          'light1/pos3/Paper03_039',
+          'light1/pos3/Paper03_040',
+          'light1/pos3/Paper03_041',
+          'light1/pos3/Paper03_042',
+          'light1/pos3/Paper03_043',
+          'light1/pos3/Paper03_044',
+          'light1/pos3/Paper03_045',
+          'light1/pos3/Paper03_046',
+          'light1/pos3/Paper03_047',
+          'light1/pos3/Paper03_048',
+          'light1/pos3/Paper03_049',
+          'light1/pos3/Paper03_050',
+          'light1/pos3/Paper03_051',
+          'light1/pos3/Paper03_052',
+          'light1/pos3/Paper03_053',
+          'light1/pos3/Paper03_054',
+          'light1/pos3/Paper03_055',
+          'light1/pos3/Paper03_056',
+          'light1/pos3/Paper03_057',
+          'light1/pos3/Paper03_058',
+          'light1/pos3/Paper03_059',
+          'light1/pos3/Paper03_060',
+          'light1/pos3/Paper03_061',
+          'light1/pos3/Paper03_062',
+          'light1/pos3/Paper03_063',
+          'light1/pos3/Paper03_064',
+          'light1/pos3/Paper03_065',
+          'light1/pos3/Paper03_066',
+          'light1/pos3/Paper03_067',
+          'light1/pos3/Paper03_068',
+          'light1/pos3/Paper03_069',
+          'light1/pos3/Paper03_070',
+          'light1/pos3/Paper03_071',
+          'light1/pos3/Paper03_072',
+          'light1/pos3/Paper03_073',
+          'light1/pos3/Paper03_074',
+          'light1/pos3/Paper03_075',
+          'light1/pos3/Paper03_076',
+          'light1/pos3/Paper03_077',
+          'light1/pos3/Paper03_078',
+          'light1/pos3/Paper03_079',
+          'light1/pos3/Paper03_080',
+          'light1/pos3/Paper03_081',
+          'light1/pos3/Paper03_082',
+          'light1/pos3/Paper03_083',
+          'light1/pos3/Paper03_084',
+          'light1/pos3/Paper03_085',
+          'light1/pos3/Paper03_086',
+          'light1/pos3/Paper03_087',
+          'light1/pos3/Paper03_088',
+          'light1/pos3/Paper03_089',
+          'light1/pos3/Paper03_090',
+          'light1/pos3/Paper03_091',
+          'light1/pos3/Paper03_092',
+          'light1/pos3/Paper03_093',
+          'light1/pos3/Paper03_094',
+          'light1/pos3/Paper03_095',
+          'light1/pos3/Paper03_096',
+          'light1/pos3/Paper03_097',
+          'light1/pos3/Paper03_098',
+          'light1/pos3/Paper03_099',
+          'light1/pos3/Paper03_100',
+        ]
+  
+
+      ]
+      len: 500
+      use_shuffle: true
+      n_workers: 2  # per GPU
+      batch_size: 6
+      data_size : 0 
+    
+  val:
+    
+      name: test
+      mode: LQSFGTAll
+      data_type: img
+      subfold: ['warp']
+      dataroot: [
+        '/root/dataset/compennet/',
+      ]
+      dataname: [
+        [
+          'light3/pos3/curves',
+
+        ],
+      ]
+      data_size : 256 
+      len: 1
+    
+  
+#### network structures
+network_G:
+  which_model_G: ConditionalNAFNetCMP
+  setting:
+    width: 32
+    enc_blk_nums: [1, 1, 1, 28]
+    middle_blk_num: 1
+    dec_blk_nums: [1, 1, 1,1]
+
+#### path
+path:
+  pretrain_model_G: ~ 
+  strict_load: true
+  resume_state: ~
+
+#### training settings: learning rate scheme, loss
+train:
+  optimizer:  Lion # 
+  lr_G: !!float 4e-5
+  lr_scheme: TrueCosineAnnealingLR
+  beta1: 0.9
+  beta2: 0.99
+  niter: 250000
+  warmup_iter: -1  # no warm up
+  lr_steps: [ 100000, 200000]
+  lr_gamma: 0.5
+  eta_min: !!float 1e-7
+
+  # criterion
+  is_weighted: False
+  loss_type: l1 # +lpips # +ssim
+  weight: 1.0
+
+  manual_seed: 0
+  val_freq: !!float 2e4
+
+#### logger
+logger:
+  print_freq: 2000
+  save_checkpoint_freq: !!float 2e4
