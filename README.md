@@ -1,4 +1,4 @@
-# <Your Algorithm Name>
+# <DiffPC: Diffusion-Based Projector Photometric Compensation>
 
 Official implementation of **DiffPC: Diffusion-Based Projector Photometric Compensation**
 
