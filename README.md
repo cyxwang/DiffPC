@@ -35,6 +35,7 @@ options/train/diffpc_train.yaml
 Replace YOUR DATA PATH with your own dataset directory.
 
 ---
+The learning rate used for our pre-trained model is 4e-5, while the learning rate used for fine-tuning is 1e-5.
 
 ### Testing
 
